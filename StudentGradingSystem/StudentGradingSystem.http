@@ -1,0 +1,6 @@
+@StudentGradingSystem_HostAddress = http://localhost:5231
+
+GET {{StudentGradingSystem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
