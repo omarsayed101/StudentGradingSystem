@@ -1,6 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using StudentGradingSystem.Context;
+using StudentGradingSystem.Repository;
 
 namespace StudentGradingSystem
 {
@@ -23,6 +24,10 @@ namespace StudentGradingSystem
             {
                 options.UseMySql(connstring, ServerVersion.AutoDetect(connstring));
             });
+
+
+            builder.Services.AddScoped(typeof(IStudentRepository), typeof(StudnetRepository));
+            builder.Services.AddScoped(typeof(ICourseRepository), typeof(CourseRepostiroy));
 
             var app = builder.Build();
 

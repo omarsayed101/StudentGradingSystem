@@ -112,3 +112,6 @@ C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.pdb
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.genruntimeconfig.cache
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\ref\StudentGradingSystem.dll
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.sourcelink.json
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\FluentValidation.ValidatorAttribute.dll
