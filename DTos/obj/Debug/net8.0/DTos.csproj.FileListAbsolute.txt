@@ -1,0 +1,12 @@
+C:\Users\omars\source\repos\StudentGradingSystem\DTos\bin\Debug\net8.0\DTos.deps.json
+C:\Users\omars\source\repos\StudentGradingSystem\DTos\bin\Debug\net8.0\DTos.dll
+C:\Users\omars\source\repos\StudentGradingSystem\DTos\bin\Debug\net8.0\DTos.pdb
+C:\Users\omars\source\repos\StudentGradingSystem\DTos\obj\Debug\net8.0\DTos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\omars\source\repos\StudentGradingSystem\DTos\obj\Debug\net8.0\DTos.AssemblyInfoInputs.cache
+C:\Users\omars\source\repos\StudentGradingSystem\DTos\obj\Debug\net8.0\DTos.AssemblyInfo.cs
+C:\Users\omars\source\repos\StudentGradingSystem\DTos\obj\Debug\net8.0\DTos.csproj.CoreCompileInputs.cache
+C:\Users\omars\source\repos\StudentGradingSystem\DTos\obj\Debug\net8.0\DTos.sourcelink.json
+C:\Users\omars\source\repos\StudentGradingSystem\DTos\obj\Debug\net8.0\DTos.dll
+C:\Users\omars\source\repos\StudentGradingSystem\DTos\obj\Debug\net8.0\refint\DTos.dll
+C:\Users\omars\source\repos\StudentGradingSystem\DTos\obj\Debug\net8.0\DTos.pdb
+C:\Users\omars\source\repos\StudentGradingSystem\DTos\obj\Debug\net8.0\ref\DTos.dll
