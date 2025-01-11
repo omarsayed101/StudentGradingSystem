@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Whj/PXAienU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\omars\\source\\repos\\StudentGradingSystem\\StudentGradingSystem.Application\\StudentGradingSystem.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\omars\\.nuget\\packages\\fluentvalidation\\8.6.1\\fluentvalidation.8.6.1.nupkg.sha512",
+    "C:\\Users\\omars\\.nuget\\packages\\system.componentmodel.annotations\\4.4.1\\system.componentmodel.annotations.4.4.1.nupkg.sha512"
+  ],
+  "logs": []
+}
