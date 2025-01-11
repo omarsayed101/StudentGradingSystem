@@ -2,14 +2,14 @@
   {
     "ContainingType": "StudentGradingSystem.Controllers.CourseController",
     "Method": "CreateCourse",
-    "RelativePath": "api/Course/CreateCourse",
+    "RelativePath": "api/Course/createcourse",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "coursedto",
-        "Type": "StudentGradingSystem.DTos.CourseDto",
+        "Type": "StudentGradingSystem.Application.Student.Command.DTos.CreateCourseDto",
         "IsRequired": true
       }
     ],
@@ -17,8 +17,8 @@
   },
   {
     "ContainingType": "StudentGradingSystem.Controllers.CourseController",
-    "Method": "DeleteDeleteStudent",
-    "RelativePath": "api/Course/DeleteCourse/{Id}",
+    "Method": "DeleteCourse",
+    "RelativePath": "api/Course/deletecourse/{Id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -34,7 +34,7 @@
   {
     "ContainingType": "StudentGradingSystem.Controllers.CourseController",
     "Method": "GetAllCourses",
-    "RelativePath": "api/Course/GetAllCourses",
+    "RelativePath": "api/Course/getallcourses",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -43,29 +43,8 @@
   },
   {
     "ContainingType": "StudentGradingSystem.Controllers.CourseController",
-    "Method": "UpdateStudent",
-    "RelativePath": "api/Course/UpdateCourse/{Id}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "coursedto",
-        "Type": "StudentGradingSystem.DTos.CourseDto",
-        "IsRequired": true
-      },
-      {
-        "Name": "Id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudentGradingSystem.Controllers.StudentController",
-    "Method": "GetAllStudentsWithFilteration",
-    "RelativePath": "api/Student/{Id}",
+    "Method": "GetCoursebyId",
+    "RelativePath": "api/Course/getcoursesbyId/{Id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -79,16 +58,16 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "StudentGradingSystem.Controllers.StudentController",
-    "Method": "CreateStudent",
-    "RelativePath": "api/Student/CreateStudent",
+    "ContainingType": "StudentGradingSystem.Controllers.CourseController",
+    "Method": "UpdateCourse",
+    "RelativePath": "api/Course/updatecourse",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "studentdto",
-        "Type": "StudentGradingSystem.DTos.StudentDto",
+        "Name": "coursedto",
+        "Type": "DTos.CourseDTos.UpdateCourseDto",
         "IsRequired": true
       }
     ],
@@ -96,8 +75,24 @@
   },
   {
     "ContainingType": "StudentGradingSystem.Controllers.StudentController",
-    "Method": "DeleteDeleteStudent",
-    "RelativePath": "api/Student/DeleteStudent/{Id}",
+    "Method": "CreateStudent",
+    "RelativePath": "api/Student/createstudent",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentdto",
+        "Type": "DTos.StudentDto.StudentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudentGradingSystem.Controllers.StudentController",
+    "Method": "DeleteStudent",
+    "RelativePath": "api/Student/deletestudent/{Id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -113,7 +108,7 @@
   {
     "ContainingType": "StudentGradingSystem.Controllers.StudentController",
     "Method": "GetAllStudents",
-    "RelativePath": "api/Student/GetAllStudents",
+    "RelativePath": "api/Student/getallstudents",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -122,27 +117,70 @@
   },
   {
     "ContainingType": "StudentGradingSystem.Controllers.StudentController",
-    "Method": "GetAllStudentsOrderdbyName",
-    "RelativePath": "api/Student/GetAllStudentsOrderdbyName",
+    "Method": "GetStudents",
+    "RelativePath": "api/Student/getstudentbyId/{Id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "StudentGradingSystem.Controllers.StudentController",
     "Method": "UpdateStudent",
-    "RelativePath": "api/Student/UpdateStudent/{Id}",
+    "RelativePath": "api/Student/updatestudent",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "studentdto",
-        "Type": "StudentGradingSystem.DTos.StudentDto",
+        "Type": "DTos.StudentDTos.UpdateStudentDto",
         "IsRequired": true
-      },
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudentGradingSystem.Controllers.StudentCoursesController",
+    "Method": "CreateStudnetCourse",
+    "RelativePath": "api/StudentCourses/create studnet  courses",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createStudnetCoursesDto",
+        "Type": "DTos.StudentCoursesDTos.CreateStudnetCoursesDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudentGradingSystem.Controllers.StudentCoursesController",
+    "Method": "GethieghstGrades",
+    "RelativePath": "api/StudentCourses/gethieghestgrades",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudentGradingSystem.Controllers.StudentCoursesController",
+    "Method": "GethieghstGradesPerCourse",
+    "RelativePath": "api/StudentCourses/gethieghestgradesPerCourse/{Id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
         "Name": "Id",
         "Type": "System.Int32",

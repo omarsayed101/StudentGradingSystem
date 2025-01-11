@@ -1,136 +1,68 @@
 ﻿using System.Linq.Expressions;
+using DTos.StudentDto;
+using DTos.StudentDTos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using StudentGradingSystem.DTos;
-using StudentGradingSystem.Helper;
-using StudentGradingSystem.Models;
-using StudentGradingSystem.Repository;
+using StudentGradingSystem.Application.Features.Course.Command.Create;
+using StudentGradingSystem.Application.Features.Course.Query;
+using StudentGradingSystem.Application.Features.Student.Command;
+using StudentGradingSystem.Application.Features.Student.Command.Delete;
+using StudentGradingSystem.Application.Features.Student.Command.Update;
+using StudentGradingSystem.Application.Features.Student.Query;
+using StudentGradingSystem.Application.Student.Command;
+
 
 namespace StudentGradingSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentController : ControllerBase
+    public class StudentController(CreateStudentCommandHandler createStudentCommandHandler,
+        UpdateStudentCommandHandler updateStudentCommandHandler,
+        DeleteStudentCommandHandler deleteStudentCommandHandler,
+        GetAllStudentsQueryHandler getAllStudentQueryHandler,
+        GetStudentQueryHandler getStudentQueryHandler) : ControllerBase
     {
-        private readonly IStudentRepository studentRepo;
+        private readonly CreateStudentCommandHandler _createStudentCommandHandler = createStudentCommandHandler;
+        private readonly UpdateStudentCommandHandler _updateStudentCommandHandler = updateStudentCommandHandler;
+        private readonly DeleteStudentCommandHandler _deleteStudentCommandHandler = deleteStudentCommandHandler;
+        private readonly GetAllStudentsQueryHandler _getAllStudentQueryHandler = getAllStudentQueryHandler;
+        private readonly GetStudentQueryHandler _getStudentQueryHandler = getStudentQueryHandler;
 
-        public StudentController(IStudentRepository studentRepo)
-        {
-            this.studentRepo = studentRepo;
-        }
-
-        [HttpGet("GetAllStudents")]
+        [HttpGet("getallstudents")]
         public async Task<IActionResult> GetAllStudents()
         {
-            return Ok(studentRepo.GetAllAsync());
+            return Ok(await _getAllStudentQueryHandler.Handle());
         }
 
-        [HttpGet("{Id}")]
-        public async Task<IActionResult> GetAllStudentsWithFilteration(int Id)
+
+        [HttpGet("getstudentbyId/{Id}")]
+        public async Task<IActionResult> GetStudents(int Id)
         {
-            return Ok(studentRepo.GetAllWithFilterAsync(s => s.Id == Id));
+            return Ok(await _getStudentQueryHandler.Handle(Id));
         }
 
-        [HttpGet("GetAllStudentsOrderdbyName")]
-        public async Task<IActionResult> GetAllStudentsOrderdbyName()
-        {
-            var students = await studentRepo.GetAllAsync();
-            return Ok(studentRepo.OrderBy(students,s=>s.DateofBirth));
+   
 
-        }
-
-        [HttpPost("CreateStudent")]
+        [HttpPost("createstudent")]
         public async Task<IActionResult> CreateStudent([FromBody]StudentDto studentdto)
         {
-            try
-            {
-                var validator = new StudentValidator();
-                var result = validator.Validate(studentdto);
-                if (result.IsValid)
-                {
-                    var student = new Student()
-                    {
-                        FirstName = studentdto.FirstName,
-                        LastName = studentdto.LastName,
-                        DateofBirth = studentdto.DateofBirth,
-                        Email = studentdto.Email,
-                        Phone = studentdto.Phone,
-                    };
-                    await studentRepo.Add(student);
-
-                    return Ok(student);
-                }
-                else
-                {
-                    string resultstring = "";
-                    foreach (var error in result.Errors)
-                    {
-                        resultstring += error; 
-                    }
-                    throw new Exception(resultstring);
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message);
-            }
+            var command = new CreateStudentCommand(studentdto.FirstName, studentdto.LastName, studentdto.DateofBirth, studentdto.Email, studentdto.Phone);
+          return   Ok(await _createStudentCommandHandler.Handle(command));
     
         }
 
-        [HttpPost("UpdateStudent/{Id}")]
-        public async Task<IActionResult> UpdateStudent([FromBody]StudentDto studentdto , int Id)
+        [HttpPost("updatestudent")]
+        public async Task<IActionResult> UpdateStudent([FromBody]UpdateStudentDto studentdto)
         {
-            try
-            {
-                var validator = new StudentValidator();
-                var result = validator.Validate(studentdto);
-
-                if (result.IsValid)
-                {
-                    var student = await studentRepo.GetByIdAsync(Id);
-
-                    student.FirstName = studentdto.FirstName;
-                    student.LastName = studentdto.LastName;
-                    student.DateofBirth = studentdto.DateofBirth;
-                    student.Email = studentdto.Email;
-                    student.Phone = studentdto.Phone;
-
-
-
-
-                    await studentRepo.Update(student);
-                    return Ok(student);
-
-                }
-                else
-                {
-                    string resultstring = "";
-                    foreach (var error in result.Errors)
-                    {
-                        resultstring += error;
-                    }
-                    throw new Exception(resultstring);
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message);
-            }
-
-       
-
+            var command = new UpdateStudentCommand(studentdto.Id,studentdto.FirstName, studentdto.LastName, studentdto.DateofBirth, studentdto.Email, studentdto.Phone);
+            return Ok(await _updateStudentCommandHandler.Handle(command));
         }
 
-        [HttpDelete("DeleteStudent/{Id}")]
-        public async Task<IActionResult> DeleteDeleteStudent(int Id)
+        [HttpDelete("deletestudent/{Id}")]
+        public async Task<IActionResult> DeleteStudent(int Id)
         {
-            var student = await studentRepo.GetByIdAsync(Id);
-
-            await studentRepo.Delete(Id);
-
-            return Ok(student);
+            
+            return Ok(await _deleteStudentCommandHandler.Handle(Id));
         }
 
     }

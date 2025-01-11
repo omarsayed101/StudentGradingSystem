@@ -18,18 +18,6 @@
           }
         }
       },
-      "FluentValidation.ValidatorAttribute/8.6.1": {
-        "type": "package",
-        "dependencies": {
-          "FluentValidation": "[8.6.1, 9.0.0)"
-        },
-        "compile": {
-          "lib/netstandard2.0/FluentValidation.ValidatorAttribute.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/FluentValidation.ValidatorAttribute.dll": {}
-        }
-      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -952,6 +940,55 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "DTos/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/DTos.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DTos.dll": {}
+        }
+      },
+      "StudentGradingSystem.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "DTos": "1.0.0",
+          "FluentValidation": "8.6.1",
+          "StudentGradingSystem.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/StudentGradingSystem.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StudentGradingSystem.Application.dll": {}
+        }
+      },
+      "StudentGradingSystem.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/StudentGradingSystem.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StudentGradingSystem.Domain.dll": {}
+        }
+      },
+      "StudentGradingSystem.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Pomelo.EntityFrameworkCore.MySql": "8.0.2",
+          "StudentGradingSystem.Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/StudentGradingSystem.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StudentGradingSystem.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -973,20 +1010,6 @@
         "lib/netstandard1.6/FluentValidation.xml",
         "lib/netstandard2.0/FluentValidation.dll",
         "lib/netstandard2.0/FluentValidation.xml"
-      ]
-    },
-    "FluentValidation.ValidatorAttribute/8.6.1": {
-      "sha512": "OJOMPvZIeSD/X6TBNFSRhn5j/kvsBIuyn9k7coSgUoaillH4QXJn+LyPp8T9aSbZt3r+VIvzhkg782QeaHNnAQ==",
-      "type": "package",
-      "path": "fluentvalidation.validatorattribute/8.6.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "fluentvalidation.validatorattribute.8.6.1.nupkg.sha512",
-        "fluentvalidation.validatorattribute.nuspec",
-        "lib/net45/FluentValidation.ValidatorAttribute.dll",
-        "lib/netstandard1.1/FluentValidation.ValidatorAttribute.dll",
-        "lib/netstandard2.0/FluentValidation.ValidatorAttribute.dll"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -2734,14 +2757,34 @@
         "system.threading.channels.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "DTos/1.0.0": {
+      "type": "project",
+      "path": "../DTos/DTos.csproj",
+      "msbuildProject": "../DTos/DTos.csproj"
+    },
+    "StudentGradingSystem.Application/1.0.0": {
+      "type": "project",
+      "path": "../StudentGradingSystem.Application/StudentGradingSystem.Application.csproj",
+      "msbuildProject": "../StudentGradingSystem.Application/StudentGradingSystem.Application.csproj"
+    },
+    "StudentGradingSystem.Domain/1.0.0": {
+      "type": "project",
+      "path": "../StudentGradingSystem.Core/StudentGradingSystem.Domain.csproj",
+      "msbuildProject": "../StudentGradingSystem.Core/StudentGradingSystem.Domain.csproj"
+    },
+    "StudentGradingSystem.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../StudentGradingSystem.Repository/StudentGradingSystem.Infrastructure.csproj",
+      "msbuildProject": "../StudentGradingSystem.Repository/StudentGradingSystem.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "FluentValidation.ValidatorAttribute >= 8.6.1",
-      "Microsoft.EntityFrameworkCore.Design >= 8.0.11",
+      "DTos >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.11",
-      "Pomelo.EntityFrameworkCore.MySql >= 8.0.2",
+      "StudentGradingSystem.Application >= 1.0.0",
+      "StudentGradingSystem.Infrastructure >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
@@ -2776,7 +2819,17 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\omars\\source\\repos\\StudentGradingSystem\\DTos\\DTos.csproj": {
+              "projectPath": "C:\\Users\\omars\\source\\repos\\StudentGradingSystem\\DTos\\DTos.csproj"
+            },
+            "C:\\Users\\omars\\source\\repos\\StudentGradingSystem\\StudentGradingSystem.Application\\StudentGradingSystem.Application.csproj": {
+              "projectPath": "C:\\Users\\omars\\source\\repos\\StudentGradingSystem\\StudentGradingSystem.Application\\StudentGradingSystem.Application.csproj"
+            },
+            "C:\\Users\\omars\\source\\repos\\StudentGradingSystem\\StudentGradingSystem.Repository\\StudentGradingSystem.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\omars\\source\\repos\\StudentGradingSystem\\StudentGradingSystem.Repository\\StudentGradingSystem.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -2795,25 +2848,11 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
-          "FluentValidation.ValidatorAttribute": {
-            "target": "Package",
-            "version": "[8.6.1, )"
-          },
-          "Microsoft.EntityFrameworkCore.Design": {
-            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[8.0.11, )"
-          },
           "Microsoft.EntityFrameworkCore.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
             "version": "[8.0.11, )"
-          },
-          "Pomelo.EntityFrameworkCore.MySql": {
-            "target": "Package",
-            "version": "[8.0.2, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

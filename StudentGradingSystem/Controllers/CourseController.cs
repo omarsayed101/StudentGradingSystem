@@ -1,111 +1,63 @@
 ﻿using System.Text;
+using DTos.CourseDTos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using StudentGradingSystem.DTos;
-using StudentGradingSystem.Helper;
-using StudentGradingSystem.Models;
-using StudentGradingSystem.Repository;
+using StudentGradingSystem.Application.Features.Course.Command.Create;
+using StudentGradingSystem.Application.Features.Course.Command.Delete;
+using StudentGradingSystem.Application.Features.Course.Command.Update;
+using StudentGradingSystem.Application.Features.Course.Query;
+using StudentGradingSystem.Application.Interfaces;
+using StudentGradingSystem.Application.Student.Command.DTos;
 
 namespace StudentGradingSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CourseController : ControllerBase
+    public class CourseController( CreateCourseCommandHandler createCommandHandler ,
+         UpdateCourseCommandHandler updateCommandHandler,
+         DeleteCourseCommandHandler deleteCommandHandler,
+         GetAllCoursesQueryHandler getAllCoursesQuery,
+         GetCourseQueryHandler getCourseByIdQuery) : ControllerBase
     {
-        private readonly ICourseRepository courseRepo;
+        private readonly CreateCourseCommandHandler _createCommandHandler = createCommandHandler;
+        private readonly UpdateCourseCommandHandler _updateCommandHandler = updateCommandHandler;
+        private readonly DeleteCourseCommandHandler _deleteCommandHandler = deleteCommandHandler;
+        private readonly GetAllCoursesQueryHandler _getAllCoursesQuery = getAllCoursesQuery;
+        private readonly GetCourseQueryHandler _getCourseByIdQuery = getCourseByIdQuery;
 
-        public CourseController(ICourseRepository courseRepo)
-        {
-            this.courseRepo = courseRepo;
-        }
-
-        [HttpGet("GetAllCourses")]
+        [HttpGet("getallcourses")]
         public async Task<IActionResult> GetAllCourses()
         {
-            return Ok(courseRepo.GetAllAsync());
+            return Ok(await _getAllCoursesQuery.Handle());
+        }
+        
+
+        [HttpGet("getcoursesbyId/{Id}")]
+        public async Task<IActionResult> GetCoursebyId(int Id) 
+        {
+            return Ok(await _getCourseByIdQuery.Handle(Id));
         }
 
-        [HttpPost("CreateCourse")]
-        public async Task<IActionResult> CreateCourse([FromBody] CourseDto coursedto)
+        [HttpPost("createcourse")]
+        public async Task<IActionResult> CreateCourse([FromBody] CreateCourseDto coursedto)
         {
-            try
-            {
-                var validator = new CourseValidator();
-               var result = validator.Validate(coursedto);
-
-                if (result.IsValid)
-                {
-                    var Course = new Course()
-                    {
-                        Name = coursedto.Name,
-
-                    };
-                    await courseRepo.Add(Course);
-
-                    return Ok(Course);
-                }
-                else
-                {
-                    string returnedstring = "";
-                    foreach (var error in result.Errors)
-                    {
-                        returnedstring += error;
-                    }
-                    throw new Exception(returnedstring);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-          
+            var command = new CreateCommand(coursedto.Name);
+           return Ok(await _createCommandHandler.Handle(command));
          
         }
 
-        [HttpPost("UpdateCourse/{Id}")]
-        public async Task<IActionResult> UpdateStudent([FromBody] CourseDto coursedto, int Id)
+        [HttpPost("updatecourse")]
+        public async Task<IActionResult> UpdateCourse([FromBody] UpdateCourseDto coursedto)
         {
-            try
-            {
-                var validator = new CourseValidator();
-                var result = validator.Validate(coursedto);
-
-                if (result.IsValid)
-                {
-                    var course = await courseRepo.GetByIdAsync(Id);
-
-                    course.Name = coursedto.Name;
-
-                    await courseRepo.Update(course);
-                    return Ok(course);
-                }
-                else
-                {
-                    string returnedstring = "";
-                    foreach (var error in result.Errors)
-                    {
-                        returnedstring += error;
-                    }
-                    throw new Exception(returnedstring);
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message);
-            }
-        
+            var command = new UpdateCommand(coursedto.Id,coursedto.Name);
+           return Ok(await _updateCommandHandler.Handle(command));
 
         }
 
-        [HttpDelete("DeleteCourse/{Id}")]
-        public async Task<IActionResult> DeleteDeleteStudent(int Id)
+        [HttpDelete("deletecourse/{Id}")]
+        public async Task<IActionResult> DeleteCourse(int Id)
         {
-            var Course = await courseRepo.GetByIdAsync(Id);
-
-            await courseRepo.Delete(Id);
-
-            return Ok(Course);
+            return Ok(await _deleteCommandHandler.Handle(Id));
         }
     }
 }

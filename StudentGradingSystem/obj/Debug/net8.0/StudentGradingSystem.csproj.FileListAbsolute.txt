@@ -1,3 +1,10 @@
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.csproj.AssemblyReference.cache
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.AssemblyInfoInputs.cache
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.AssemblyInfo.cs
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.csproj.CoreCompileInputs.cache
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.sourcelink.json
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\appsettings.json
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\StudentGradingSystem.staticwebassets.endpoints.json
@@ -6,6 +13,7 @@ C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\StudentGradingSystem.runtimeconfig.json
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\StudentGradingSystem.dll
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\StudentGradingSystem.pdb
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\FluentValidation.dll
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\Humanizer.dll
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
@@ -88,13 +96,14 @@ C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.csproj.AssemblyReference.cache
-C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.AssemblyInfoInputs.cache
-C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.AssemblyInfo.cs
-C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.csproj.CoreCompileInputs.cache
-C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\DTos.dll
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\StudentGradingSystem.Application.dll
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\StudentGradingSystem.Domain.dll
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\StudentGradingSystem.Infrastructure.dll
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\DTos.pdb
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\StudentGradingSystem.Application.pdb
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\StudentGradingSystem.Infrastructure.pdb
+C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\StudentGradingSystem.Domain.pdb
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\scopedcss\bundle\StudentGradingSystem.styles.css
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\staticwebassets.development.json
@@ -112,6 +121,3 @@ C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.pdb
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.genruntimeconfig.cache
 C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\ref\StudentGradingSystem.dll
-C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\obj\Debug\net8.0\StudentGradingSystem.sourcelink.json
-C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\FluentValidation.dll
-C:\Users\omars\source\repos\StudentGradingSystem\StudentGradingSystem\bin\Debug\net8.0\FluentValidation.ValidatorAttribute.dll

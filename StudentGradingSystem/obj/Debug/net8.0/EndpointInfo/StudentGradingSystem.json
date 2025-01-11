@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Course/GetAllCourses": {
+    "/api/Course/getallcourses": {
       "get": {
         "tags": [
           "Course"
@@ -17,39 +17,8 @@
         }
       }
     },
-    "/api/Course/CreateCourse": {
-      "post": {
-        "tags": [
-          "Course"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CourseDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CourseDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CourseDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Course/UpdateCourse/{Id}": {
-      "post": {
+    "/api/Course/getcoursesbyId/{Id}": {
+      "get": {
         "tags": [
           "Course"
         ],
@@ -64,21 +33,33 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Course/createcourse": {
+      "post": {
+        "tags": [
+          "Course"
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CourseDto"
+                "$ref": "#/components/schemas/CreateCourseDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CourseDto"
+                "$ref": "#/components/schemas/CreateCourseDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CourseDto"
+                "$ref": "#/components/schemas/CreateCourseDto"
               }
             }
           }
@@ -90,7 +71,38 @@
         }
       }
     },
-    "/api/Course/DeleteCourse/{Id}": {
+    "/api/Course/updatecourse": {
+      "post": {
+        "tags": [
+          "Course"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCourseDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCourseDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCourseDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Course/deletecourse/{Id}": {
       "delete": {
         "tags": [
           "Course"
@@ -113,7 +125,7 @@
         }
       }
     },
-    "/api/Student/GetAllStudents": {
+    "/api/Student/getallstudents": {
       "get": {
         "tags": [
           "Student"
@@ -125,7 +137,7 @@
         }
       }
     },
-    "/api/Student/{Id}": {
+    "/api/Student/getstudentbyId/{Id}": {
       "get": {
         "tags": [
           "Student"
@@ -148,19 +160,7 @@
         }
       }
     },
-    "/api/Student/GetAllStudentsOrderdbyName": {
-      "get": {
-        "tags": [
-          "Student"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Student/CreateStudent": {
+    "/api/Student/createstudent": {
       "post": {
         "tags": [
           "Student"
@@ -191,37 +191,26 @@
         }
       }
     },
-    "/api/Student/UpdateStudent/{Id}": {
+    "/api/Student/updatestudent": {
       "post": {
         "tags": [
           "Student"
-        ],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/StudentDto"
+                "$ref": "#/components/schemas/UpdateStudentDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/StudentDto"
+                "$ref": "#/components/schemas/UpdateStudentDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/StudentDto"
+                "$ref": "#/components/schemas/UpdateStudentDto"
               }
             }
           }
@@ -233,10 +222,76 @@
         }
       }
     },
-    "/api/Student/DeleteStudent/{Id}": {
+    "/api/Student/deletestudent/{Id}": {
       "delete": {
         "tags": [
           "Student"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/StudentCourses/create studnet  courses": {
+      "post": {
+        "tags": [
+          "StudentCourses"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudnetCoursesDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudnetCoursesDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudnetCoursesDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/StudentCourses/gethieghestgrades": {
+      "get": {
+        "tags": [
+          "StudentCourses"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/StudentCourses/gethieghestgradesPerCourse/{Id}": {
+      "get": {
+        "tags": [
+          "StudentCourses"
         ],
         "parameters": [
           {
@@ -259,12 +314,30 @@
   },
   "components": {
     "schemas": {
-      "CourseDto": {
+      "CreateCourseDto": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateStudnetCoursesDto": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "courseId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "grade": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -297,6 +370,50 @@
           "phone": {
             "type": "string",
             "format": "tel",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateCourseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateStudentDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateofBirth": {
+            "type": "string",
+            "format": "date"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
             "nullable": true
           }
         },
