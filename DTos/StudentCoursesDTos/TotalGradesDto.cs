@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace DTos.StudentCoursesDTos
 {
-    public class StudnetCourseReturnDto
+    public class TotalGradesDto
     {
-        public string StdName { get; set; }
-        public string CrsName { get; set; }
+        public string StudnetName { get; set; }
 
-        public int Grade { get; set; }
+        public int TotalGrade { get; set; }
     }
 }
