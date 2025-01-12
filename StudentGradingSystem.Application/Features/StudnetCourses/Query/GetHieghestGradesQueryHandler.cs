@@ -21,22 +21,17 @@ namespace StudentGradingSystem.Application.Features.StudnetCourses.Query
                 sc=>sc.Student,
 
             };
-            var studentcourse = await _studentCoursesRepo.GetAllWithFilterAndIncludesAsync(includes);
-
-             var StudnetCoursesWithHieghstGrades= await _studentCoursesRepo.OrderBy(studentcourse , s=>s.Grade , isAscending: false);
-
-            var returndto = new List<StudnetCourseReturnDto>();
-
-            foreach (var item in StudnetCoursesWithHieghstGrades)
+            var StudnetCoursesWithHieghstGradesdto =  _studentCoursesRepo.GetAllWithFilterAndIncludesAsync(includes).Result.OrderByDescending(s => s.Grade)
+            .Select(sc => new StudnetCourseReturnDto
             {
-                returndto.Add(new StudnetCourseReturnDto {
-                    StdName = $"{item.Student.FirstName} {item.Student.LastName}",
-                    CrsdName = item.Course.Name,
-                    Grade = item.Grade
-                });
-            }
+                StdName = $"{sc.Student.FirstName} {sc.Student.LastName}",
+                CrsName = sc.Course.Name,
+                Grade = sc.Grade
+            }).ToList();
 
-            return returndto;
+       
+
+            return StudnetCoursesWithHieghstGradesdto;
         }
     }
 }

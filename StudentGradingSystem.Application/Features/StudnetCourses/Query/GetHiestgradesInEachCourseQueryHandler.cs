@@ -25,24 +25,16 @@ namespace StudentGradingSystem.Application.Features.StudnetCourses.Query
                 sc=>sc.Course,
             };
 
-            var studentcourse = await _studentCoursesRepository.GetAllWithFilterAndIncludesAsync(includes, b => b.CourseId == Id);
+            var studenstudentCourseReturndtotcourse =  _studentCoursesRepository.GetAllWithFilterAndIncludesAsync(includes, c => c.CourseId == Id)
+                .Result.OrderByDescending(sc=>sc.Grade)
+                .Select(sc => new StudnetCourseReturnDto() 
+              { StdName = $"{sc.Student.FirstName} {sc.Student.LastName}",
+                CrsName = sc.Course.Name, 
+                Grade = sc.Grade }).ToList().Take(3);
 
-            var studentCoursesOrdered = await _studentCoursesRepository.OrderBy(studentcourse , s => s.Grade , isAscending : false);
+      
 
-            var studentCourseReturndto = new List<StudnetCourseReturnDto>();
-
-            foreach (var item in studentCoursesOrdered)
-            {
-                studentCourseReturndto.Add(new StudnetCourseReturnDto()
-                {
-                    StdName = $"{item.Student.FirstName} {item.Student.LastName}",
-                    CrsdName = item.Course.Name,
-                    Grade = item.Grade
-                });
-            }
-
-
-            return studentCourseReturndto.Take(3);
+            return studenstudentCourseReturndtotcourse;
         }
     }
 }
