@@ -310,6 +310,18 @@
           }
         }
       }
+    },
+    "/api/StudentCourses/gettotal": {
+      "get": {
+        "tags": [
+          "StudentCourses"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

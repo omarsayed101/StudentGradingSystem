@@ -188,5 +188,15 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudentGradingSystem.Controllers.StudentCoursesController",
+    "Method": "GettotalOrderd",
+    "RelativePath": "api/StudentCourses/gettotal",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

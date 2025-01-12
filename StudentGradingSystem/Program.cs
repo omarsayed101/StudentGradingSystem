@@ -57,6 +57,7 @@ namespace StudentGradingSystem
             builder.Services.AddScoped(typeof(StudnetCoursesCreateCommandHandler));
             builder.Services.AddScoped(typeof(GetHieghestGradesQueryHandler));
             builder.Services.AddScoped(typeof(GetHiestgradesInEachCourseQueryHandler));
+            builder.Services.AddScoped(typeof(GetTotalHieghestGradesQueryHandler));
 
             var app = builder.Build();
 
